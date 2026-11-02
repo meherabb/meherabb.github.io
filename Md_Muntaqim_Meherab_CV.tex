@@ -1,200 +1,198 @@
 \documentclass[11pt,a4paper]{article}
 
-% -------------------- Packages --------------------
-\usepackage[a4paper,margin=1.6cm]{geometry}
-\usepackage[hidelinks]{hyperref}\hypersetup{pdftitle={Md Muntaqim Meherab - Academic CV},pdfauthor={Md Muntaqim Meherab}}
+% Compile with pdfLaTeX. No custom fonts or image files are required.
+\usepackage[a4paper,top=1.45cm,bottom=1.55cm,left=1.65cm,right=1.65cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{tabularx}
-\usepackage{xcolor}
-\IfFileExists{fontawesome5.sty}{%
-  \usepackage{fontawesome5}
-}{%
-  \newcommand{\faEnvelope}{}
-  \newcommand{\faPhone}{}
-  \newcommand{\faMapMarker}{}
-  \newcommand{\faLinkedin}{}
-  \newcommand{\faGithub}{}
-  \newcommand{\faGraduationCap}{}
-}
+\usepackage{needspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
 
-% -------------------- Style --------------------
+\definecolor{ink}{HTML}{182D43}
+\definecolor{muted}{HTML}{566270}
+\definecolor{rulecolor}{HTML}{D8DEE6}
+\definecolor{linkmarker}{HTML}{EEF4FB}
+\definecolor{linkink}{HTML}{254E78}
+\hypersetup{pdftitle={Md Muntaqim Meherab - Academic CV},pdfauthor={Md Muntaqim Meherab},pdfsubject={Academic curriculum vitae}}
+\urlstyle{same}
 \setlength{\parindent}{0pt}
-\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
-\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlist[itemize]{leftmargin=1.25em,itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\titleformat{\section}{\large\sffamily\bfseries\color{ink}}{}{0pt}{}[\vspace{2pt}{\color{rulecolor}\titlerule}]
 \titlespacing*{\section}{0pt}{10pt}{6pt}
-\definecolor{muted}{RGB}{90,90,90}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{muted}Md Muntaqim Meherab}
+\fancyfoot[R]{\footnotesize\color{muted}\thepage\,/\,\pageref*{LastPage}}
+\setlength{\footskip}{20pt}
 
-% -------------------- Commands --------------------
-\newcommand{\cvsubheading}[4]{%
-  \begin{tabularx}{\textwidth}{X r}
-    \textbf{#1} & \textcolor{muted}{#2} \\
-    \textit{#3} & \textcolor{muted}{#4} \\
-  \end{tabularx}
+% Highlighted "Link" labels are used only for publications and books.
+\newcommand{\cvlink}[1]{\href{#1}{\begingroup\setlength{\fboxsep}{2.5pt}\colorbox{linkmarker}{\textcolor{linkink}{\normalfont\footnotesize\strut Link}}\endgroup}}
+\newcommand{\myname}{\textbf{Md Muntaqim Meherab}}
+\newcommand{\cvsubheading}[2]{\textbf{#1}\\[-1pt]{\small\color{muted}#2}\par}
+% Author(s), title, venue, year, link. The year has its own column.
+\newcommand{\cvpub}[5]{%
+  \Needspace{4\baselineskip}%
+  \item\begin{minipage}[t]{\linewidth}
+  \begin{tabularx}{\linewidth}[t]{@{}>{\raggedright\arraybackslash}X@{\hspace{0.8em}}r@{}}
+    \textbf{#2} & {\small\color{muted}#4}
+  \end{tabularx}\par\vspace{-1pt}
+  {\small #1}\par
+  {\small\textit{#3}\enspace #5}\par
+  \end{minipage}
 }
-
-\newcommand{\cvpub}[4]{%
-  \item \textbf{#2} \hfill \textcolor{muted}{#4}\\[-2pt]
-  \textcolor{muted}{#1}\enspace
-  \textit{#3}.
-}
-
-\newcommand{\cvitem}[1]{\item #1}
 
 \begin{document}
+\fontsize{10.5}{12.4}\selectfont
 
-% ===================== HEADER =====================
-{\LARGE \textbf{Md Muntaqim Meherab}}\\[-2pt]
-\textcolor{muted}{B.Sc. in Computer Science \& Engineering}\\[6pt]
+% ==================== HEADER ====================
+{\fontsize{25}{28}\selectfont\sffamily\bfseries\color{ink}Md Muntaqim Meherab}\par
+\vspace{4pt}
+{\small\color{muted}Computer Vision \& Remote Sensing Researcher\enspace |\enspace B.Sc. CSE Student}\par
+\vspace{7pt}
+{\small
+\href{mailto:meherab2305101354@diu.edu.bd}{\texttt{meherab2305101354@diu.edu.bd}}
+\hfill +8801704452423\enspace |\enspace Dhaka, Bangladesh\par
+\vspace{4pt}
+\href{https://meherabb.github.io/}{\textcolor{linkink}{Website}}\quad
+\href{https://github.com/meherabb}{\textcolor{linkink}{GitHub}}\quad
+\href{https://www.linkedin.com/in/md-muntaqim-meherab-18284827b}{\textcolor{linkink}{LinkedIn}}\quad
+\href{https://scholar.google.com/citations?user=Shb_q1QAAAAJ&hl=en}{\textcolor{linkink}{Google Scholar}}
+}\par
 
-\href{mailto:meherab2305101354@diu.edu.bd}
-{\faEnvelope\ \texttt{meherab2305101354@diu.edu.bd}}
-\quad
-\faMapMarker\ Dhaka, Bangladesh\\[4pt]
+\section*{Research Profile}
+My research focuses on robust and computationally efficient computer vision for remote sensing and climate applications. Recent work examines mid-layer representations in frozen vision transformers, predictive confidence under cloud occlusion in flood segmentation, and robustness to noisy or missing inputs. My broader aim is to improve the reliability of vision models under limited compute and imperfect observations. I emphasize controlled evaluation and reproducible implementations.
 
-\faLinkedin\ 
-\href{https://www.linkedin.com/in/md-muntaqim-meherab-18284827b}
-{LinkedIn}
-\quad
-\faGithub\ 
-\href{https://github.com/meherabb}{GitHub}
-\quad
-\faGraduationCap\ 
-\href{https://scholar.google.com/citations?user=Shb_q1QAAAAJ&hl=en}
-{Google Scholar}
-
-% ===================== PROFILE =====================
-\section*{Profile}
-Undergraduate Computer Science \& Engineering student and research
-assistant at DIU's NLP \& ML Research Lab. My research focuses on remote sensing, climate change AI, and reliable
-machine learning, alongside deep learning for vision, LLM evaluation,
-and neuro-symbolic reasoning.
-I enjoy turning ideas into working implementations, running careful
-experiments, and writing results clearly so others can reproduce and
-build on them.
-
-% ===================== EDUCATION =====================
 \section*{Education}
-\cvsubheading
-{B.Sc. in Computer Science \& Engineering}{}
-{Daffodil International University, Dhaka, Bangladesh}{}
+\cvsubheading{B.Sc. in Computer Science \& Engineering \textnormal}{Daffodil International University, Dhaka, Bangladesh}
+{\small\color{muted}Expected graduation: 30 June 2027.}\par
 
-% ===================== PUBLICATIONS =====================
 \section*{Publications \& Research Outputs}
+{\small\sffamily\bfseries\color{muted}Main-conference and conference-proceedings papers}\par
+\begin{itemize}[leftmargin=1.15em,itemsep=4pt,topsep=4pt]
+\cvpub
+ {\myname\ et al.}
+ {Zero-Gradient Mid-layer Evolutionary Homophilic Exploration for Remote-sensing Adaptation with Frozen Backbones}
+ {IEEE/CVF Winter Conference on Applications of Computer Vision. Accepted; proceedings forthcoming.}
+ {2027}
+ {\cvlink{https://github.com/meherabb/meherab}}
 
-\begin{itemize}[leftmargin=*, itemsep=4pt]
+% Publisher record: available online 8 June 2026; conference edition: 2025.
+\cvpub
+ {\myname\ et al.}
+ {Dynamic Region-Aware Gradient Suppression (DRAGS): Enhancing Vision Model Robustness by Suppressing Noisy Feature Regions During Training}
+ {Proceedings of the International Conference on Intelligent Data Analysis and Applications (2025), Atlantis Press, pp.\ 679--687.}
+ {2026}
+ {\cvlink{https://doi.org/10.2991/978-94-6239-664-7_47}}
 
-  \cvpub
-  {Meherab et al.}
-  {Zero-Gradient Mid-layer Evolutionary Homophilic Exploration for Remote-sensing Adaptation with Frozen Backbones}
-  {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), Main Conference.
-  \href{https://github.com/meherabb/meherab}{Project}}
-  {2027}
-
-  \cvpub
-  {Meherab et al.}
-  {Does Confidence Track Visibility? Diagnosing Blind Confidence in Cloud-Occluded Flood Segmentation}
-  {NeurIPS 2026 Workshop: Tackling Climate Change with Machine Learning (TCCML).
-  \href{https://github.com/meherabb/blind-confidence-flood-mapping}{Project}}
-  {2026}
-
-  \cvpub
-  {Meherab et al.}
-  {What Your CXR Reveals Beyond the Pathology: Causal Evidence for Demographic Leakage in Medical Foundation Model Embeddings and Its Calibration Fairness Consequences}
-  {ECCV 2026 Workshop: MEDFMB.
-  \href{https://github.com/meherabb/demographic-leakage-cxr/}{Project}}
-  {2026}
-
-  \cvpub
-  {Md Muntaqim Meherab}
-  {CoSSA: Correlation-Structure Shift Adapter for Cross-City Urban Forecasting}
-  {NeurIPS 2025 Workshop: \textit{UrbanAI} (co-organised by Google).
-  \href{https://openreview.net/pdf?id=596OsHKOpf}{Paper}}
-  {2025}
-
-  \cvpub
-  {Md Muntaqim Meherab}
-  {Gist Meets Graph: A Dual-Trace Neuro-Symbolic Reasoner for Knowledge Graph Question Answering}
-  {AAAI 2026 Workshop: \textit{NeusymBridge}. Springer Nature (edited volume)}
-  {2026 (to appear)}
-
-  \cvpub
-  {Meherab et al.}
-  {Axiomatic Negation Coherence in Language Models: Evidence from FOLIO}
-  {AAAI 2026 Bridge Program: \textit{LMReasoning}}
-  {2026}
-
-  \cvpub
-  {Meherab et al.}
-  {Advancing NLP Equity: A Secondary Benchmark Evaluation of Multilingual Language Models for Underrepresented Languages}
-  {AAAI 2026 Workshop: \textit{LM4UC}. Springer (LNCS/CCIS; indexed in Scopus, DBLP, EI Compendex).
-  \href{https://openreview.net/forum?id=YlTVWukmJe}{Paper}}
-  {2026 (to appear)}
-
-  \cvpub
-  {Meherab et al.}
-  {Multi-Domain Patch-Dropout: Improving Robustness Under Missing Data}
-  {5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025), Springer}
-  {2025}
-
-  \cvpub
-  {Meherab et al.}
-  {Dynamic Region-Aware Gradient Suppression (DRAGS): Enhancing Vision Model Robustness by Suppressing Noisy Feature Regions During Training}
-  {International Conference on Intelligent Data Analysis and Applications (IDAA 2025), Atlantis Press (Springer Nature).
-  \href{https://www.atlantis-press.com/proceedings/idaa-25/126024922}{Paper}}
-  {2025 (accepted)}
-
+% Full title follows the official 2025 conference programme. The proceedings
+% publication year and Springer bibliographic record still need confirmation.
+\cvpub
+ {\myname\ et al.}
+ {Multi Domain Patch-Dropout: A Simple Input-Space Regularizer That Improves Robustness Under Missing Data}
+ {5th International Conference on Trends in Electronics and Health Informatics (2025).}
+ {2025}
+ {\cvlink{https://github.com/meherabb/multi-domain-patch-dropout}}
 \end{itemize}
 
-% ===================== BOOKS =====================
+\vspace{3pt}
+{\small\sffamily\bfseries\color{muted}Workshop and bridge-program papers}\par
+\begin{itemize}[leftmargin=1.15em,itemsep=4pt,topsep=4pt]
+\cvpub
+ {\myname\ et al.}
+ {Does Confidence Track Visibility? Diagnosing Blind Confidence in Cloud-Occluded Flood Segmentation}
+ {NeurIPS 2026 Workshop on Tackling Climate Change with Machine Learning.}
+ {2026}
+ {\cvlink{https://github.com/meherabb/blind-confidence-flood-mapping}}
+
+\cvpub
+ {\myname\ et al.}
+ {What Your CXR Reveals Beyond the Pathology: Causal Evidence for Demographic Leakage in Medical Foundation Model Embeddings and Its Calibration Fairness Consequences}
+ {ECCV 2026 Workshop on Medical Foundation Models and Benchmarks.}
+ {2026}
+ {\cvlink{https://github.com/meherabb/demographic-leakage-cxr/}}
+
+
+% Forthcoming status is author-supplied. Indexing claims are omitted until
+% the exact chapter/volume record is available.
+\cvpub
+ {\myname\ et al.}
+ {Advancing NLP Equity: A Secondary Benchmark Evaluation of Multilingual Language Models for Underrepresented Languages}
+ {AAAI 2026 Workshop on Language Models for Underserved Communities. Springer CCIS version to appear.}
+ {2026}
+ {\cvlink{https://openreview.net/forum?id=YlTVWukmJe}}
+
+\cvpub
+ {\myname}
+ {CoSSA: Correlation-Structure Shift Adapter for Cross-City Urban Forecasting}
+ {NeurIPS 2025 UrbanAI Workshop.}
+ {2025}
+ {\cvlink{https://openreview.net/pdf?id=596OsHKOpf}}
+\end{itemize}
+
+\newpage
 \section*{Books}
-\begin{itemize}
-  \item \textbf{Safe \& Smart AI Prompts: Schema-First Prompt Engineering for LLMs}.\\
-  \textcolor{muted}{Amazon KDP, 2025}
-
-  \item \textbf{Python Made Simple: For Everyone}.\\
-  \textcolor{muted}{Amazon KDP, 2026}
+\begin{itemize}[itemsep=5pt]
+ \item \textbf{Python Made Simple: For Everyone}.\enspace\cvlink{https://www.amazon.ca/Python-Made-Simple-Muntaqim-Meherab/dp/B0GHPFSC65}\\[-1pt]
+ {\small\color{muted}Amazon KDP, 2026.}
+ \item \textbf{Safe \& Smart AI Prompts: Schema-First Prompt Engineering for LLMs}.\enspace\cvlink{https://www.amazon.ca/Safe-Smart-Prompts-Schema-First-Engineering/dp/B0G592T11S}\\[-1pt]
+ {\small\color{muted}Amazon KDP, 2025.}
 \end{itemize}
 
-% ===================== AWARDS =====================
 \section*{Awards \& Achievements}
 \begin{itemize}
-  \cvitem{Library Excellence Award --- Central Library, DIU
-  (Best Library User; First Position).}
-  \cvitem{Champion Team --- Data Structures course project;
-  awarded by the Dean, FSIT, DIU.}
-  \cvitem{Champion Team --- Object-Oriented Programming course project
-  (\textit{Smart Agro System}).}
+ \item \textbf{Library Excellence Award}, Central Library, DIU: Best Library User, first position.
+ \item \textbf{Champion Team}, Data Structures course project; awarded by the Dean, FSIT, DIU.
+ \item \textbf{Champion Team}, Object-Oriented Programming course project: \textit{Smart Agro System}.
 \end{itemize}
 
-% ===================== LEADERSHIP =====================
-\section*{Leadership \& Service}
+\section*{Academic Service}
 \begin{itemize}
-  \cvitem{\textbf{Academic Service:} Reviewer, ICLR 2026 Workshop on
-  LLM Reasoning (OpenReview).}
-
-  \cvitem{\textbf{Academic Service:} Reviewer, ICLR 2026 2nd Workshop
-  on World Models (OpenReview).}
-
-  \cvitem{\textbf{Academic Service:} Reviewer, ICLR 2026 Workshop
-  Agents in the Wild: Safety, Security, and Beyond.}
-
-  \cvitem{\textbf{Volunteer Service:} Volunteer,
-  4th National Data Science Summit.}
-
-  \cvitem{Daffodil AI Club --- Assistant General Secretary.}
-  \cvitem{DIU Data Science Club --- Executive Member.}
-  \cvitem{DIU Reader's Club --- Former General Secretary.}
+ \item \textbf{Conference Reviewer:} COLM.
+ \item \textbf{Workshop Reviewer:} Workshops at NeurIPS, ICLR, and ICML.
 \end{itemize}
 
-% ===================== SKILLS =====================
-\section*{Technical Skills}
-\textbf{Programming:} Python, C/C++, Java\\
-\textbf{Frameworks \& Libraries:} PyTorch, NumPy, Pandas, Scikit-learn\\
-\textbf{AI/ML:} Deep Learning, LLMs (prompting \& evaluation),
-Computer Vision, NLP\\
-\textbf{Tools:} Google Colab, Jupyter Notebook, Git, Linux\\
-\textbf{Research:} Academic writing, literature review,
-experiment documentation, reproducibility, LaTeX
+\section*{Leadership \& Volunteer Service}
+\begin{itemize}
+ \item Assistant General Secretary, Daffodil AI Club.
+ \item Executive Member, DIU Data Science Club.
+ \item Former General Secretary, DIU Reader's Club.
+ \item Volunteer, 4th National Data Science Summit.
+\end{itemize}
 
+\section*{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}>{\bfseries}l@{\hspace{1em}}>{\raggedright\arraybackslash}X@{}}
+ Programming & Python, C/C++, Java\\[2pt]
+ Libraries & PyTorch, NumPy, Pandas, Scikit-learn\\[2pt]
+ Computer Vision & Vision transformers, representation learning, remote-sensing image analysis, image classification, semantic segmentation\\[2pt]
+ Model Evaluation & Robustness testing, confidence calibration, controlled experiments, reproducible evaluation\\[2pt]
+ NLP \& LLMs & Natural language processing, LLM prompting and evaluation\\[2pt]
+ Tools & Git, Linux, Google Colab, Jupyter Notebook, LaTeX
+\end{tabularx}
+
+% Nuruzzaman Faruqui: current Monash role and DIU appointment on study leave.
+\section*{References}
+\begin{itemize}[itemsep=6pt]
+ \item \textbf{Sheak Rashed Haider Noori}\\[-1pt]
+ {\small Professor \& Head, Department of Computer Science \& Engineering, Daffodil International University.\\
+ Daffodil Smart City (DSC), Birulia, Savar, Dhaka--1216, Bangladesh.\\
+ Tel: +8801847140016\quad Email: \href{mailto:drnoori@daffodilvarsity.edu.bd}{\texttt{drnoori@daffodilvarsity.edu.bd}}}
+ \item \textbf{Nuruzzaman Faruqui}\\[-1pt]
+ {\small PhD Researcher, Monash University, Australia.\\
+ Assistant Professor (on study leave), Department of Software Engineering,\\
+ Daffodil International University, Bangladesh.\\
+ Tel: +8801763341153\quad Email: \href{mailto:faruqui.swe@diu.edu.bd}{\texttt{faruqui.swe@diu.edu.bd}}}
+ \item \textbf{Touhid Bhuiyan}\\[-1pt]
+ {\small Professor, Washington University of Science and Technology, Alexandria, VA, USA.\\
+ Email: \href{mailto:touhid.bhuiyan@wust.edu}{\texttt{touhid.bhuiyan@wust.edu}}}
+\end{itemize}
 \end{document}
