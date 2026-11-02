@@ -1,0 +1,200 @@
+\documentclass[11pt,a4paper]{article}
+
+% -------------------- Packages --------------------
+\usepackage[a4paper,margin=1.6cm]{geometry}
+\usepackage[hidelinks]{hyperref}\hypersetup{pdftitle={Md Muntaqim Meherab - Academic CV},pdfauthor={Md Muntaqim Meherab}}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\IfFileExists{fontawesome5.sty}{%
+  \usepackage{fontawesome5}
+}{%
+  \newcommand{\faEnvelope}{}
+  \newcommand{\faPhone}{}
+  \newcommand{\faMapMarker}{}
+  \newcommand{\faLinkedin}{}
+  \newcommand{\faGithub}{}
+  \newcommand{\faGraduationCap}{}
+}
+
+% -------------------- Style --------------------
+\setlength{\parindent}{0pt}
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.2em}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\definecolor{muted}{RGB}{90,90,90}
+
+% -------------------- Commands --------------------
+\newcommand{\cvsubheading}[4]{%
+  \begin{tabularx}{\textwidth}{X r}
+    \textbf{#1} & \textcolor{muted}{#2} \\
+    \textit{#3} & \textcolor{muted}{#4} \\
+  \end{tabularx}
+}
+
+\newcommand{\cvpub}[4]{%
+  \item \textbf{#2} \hfill \textcolor{muted}{#4}\\[-2pt]
+  \textcolor{muted}{#1}\enspace
+  \textit{#3}.
+}
+
+\newcommand{\cvitem}[1]{\item #1}
+
+\begin{document}
+
+% ===================== HEADER =====================
+{\LARGE \textbf{Md Muntaqim Meherab}}\\[-2pt]
+\textcolor{muted}{B.Sc. in Computer Science \& Engineering}\\[6pt]
+
+\href{mailto:meherab2305101354@diu.edu.bd}
+{\faEnvelope\ \texttt{meherab2305101354@diu.edu.bd}}
+\quad
+\faMapMarker\ Dhaka, Bangladesh\\[4pt]
+
+\faLinkedin\ 
+\href{https://www.linkedin.com/in/md-muntaqim-meherab-18284827b}
+{LinkedIn}
+\quad
+\faGithub\ 
+\href{https://github.com/meherabb}{GitHub}
+\quad
+\faGraduationCap\ 
+\href{https://scholar.google.com/citations?user=Shb_q1QAAAAJ&hl=en}
+{Google Scholar}
+
+% ===================== PROFILE =====================
+\section*{Profile}
+Undergraduate Computer Science \& Engineering student and research
+assistant at DIU's NLP \& ML Research Lab. My research focuses on remote sensing, climate change AI, and reliable
+machine learning, alongside deep learning for vision, LLM evaluation,
+and neuro-symbolic reasoning.
+I enjoy turning ideas into working implementations, running careful
+experiments, and writing results clearly so others can reproduce and
+build on them.
+
+% ===================== EDUCATION =====================
+\section*{Education}
+\cvsubheading
+{B.Sc. in Computer Science \& Engineering}{}
+{Daffodil International University, Dhaka, Bangladesh}{}
+
+% ===================== PUBLICATIONS =====================
+\section*{Publications \& Research Outputs}
+
+\begin{itemize}[leftmargin=*, itemsep=4pt]
+
+  \cvpub
+  {Meherab et al.}
+  {Zero-Gradient Mid-layer Evolutionary Homophilic Exploration for Remote-sensing Adaptation with Frozen Backbones}
+  {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), Main Conference.
+  \href{https://github.com/meherabb/meherab}{Project}}
+  {2027}
+
+  \cvpub
+  {Meherab et al.}
+  {Does Confidence Track Visibility? Diagnosing Blind Confidence in Cloud-Occluded Flood Segmentation}
+  {NeurIPS 2026 Workshop: Tackling Climate Change with Machine Learning (TCCML).
+  \href{https://github.com/meherabb/blind-confidence-flood-mapping}{Project}}
+  {2026}
+
+  \cvpub
+  {Meherab et al.}
+  {What Your CXR Reveals Beyond the Pathology: Causal Evidence for Demographic Leakage in Medical Foundation Model Embeddings and Its Calibration Fairness Consequences}
+  {ECCV 2026 Workshop: MEDFMB.
+  \href{https://github.com/meherabb/demographic-leakage-cxr/}{Project}}
+  {2026}
+
+  \cvpub
+  {Md Muntaqim Meherab}
+  {CoSSA: Correlation-Structure Shift Adapter for Cross-City Urban Forecasting}
+  {NeurIPS 2025 Workshop: \textit{UrbanAI} (co-organised by Google).
+  \href{https://openreview.net/pdf?id=596OsHKOpf}{Paper}}
+  {2025}
+
+  \cvpub
+  {Md Muntaqim Meherab}
+  {Gist Meets Graph: A Dual-Trace Neuro-Symbolic Reasoner for Knowledge Graph Question Answering}
+  {AAAI 2026 Workshop: \textit{NeusymBridge}. Springer Nature (edited volume)}
+  {2026 (to appear)}
+
+  \cvpub
+  {Meherab et al.}
+  {Axiomatic Negation Coherence in Language Models: Evidence from FOLIO}
+  {AAAI 2026 Bridge Program: \textit{LMReasoning}}
+  {2026}
+
+  \cvpub
+  {Meherab et al.}
+  {Advancing NLP Equity: A Secondary Benchmark Evaluation of Multilingual Language Models for Underrepresented Languages}
+  {AAAI 2026 Workshop: \textit{LM4UC}. Springer (LNCS/CCIS; indexed in Scopus, DBLP, EI Compendex).
+  \href{https://openreview.net/forum?id=YlTVWukmJe}{Paper}}
+  {2026 (to appear)}
+
+  \cvpub
+  {Meherab et al.}
+  {Multi-Domain Patch-Dropout: Improving Robustness Under Missing Data}
+  {5th International Conference on Trends in Electronics and Health Informatics (TEHI 2025), Springer}
+  {2025}
+
+  \cvpub
+  {Meherab et al.}
+  {Dynamic Region-Aware Gradient Suppression (DRAGS): Enhancing Vision Model Robustness by Suppressing Noisy Feature Regions During Training}
+  {International Conference on Intelligent Data Analysis and Applications (IDAA 2025), Atlantis Press (Springer Nature).
+  \href{https://www.atlantis-press.com/proceedings/idaa-25/126024922}{Paper}}
+  {2025 (accepted)}
+
+\end{itemize}
+
+% ===================== BOOKS =====================
+\section*{Books}
+\begin{itemize}
+  \item \textbf{Safe \& Smart AI Prompts: Schema-First Prompt Engineering for LLMs}.\\
+  \textcolor{muted}{Amazon KDP, 2025}
+
+  \item \textbf{Python Made Simple: For Everyone}.\\
+  \textcolor{muted}{Amazon KDP, 2026}
+\end{itemize}
+
+% ===================== AWARDS =====================
+\section*{Awards \& Achievements}
+\begin{itemize}
+  \cvitem{Library Excellence Award --- Central Library, DIU
+  (Best Library User; First Position).}
+  \cvitem{Champion Team --- Data Structures course project;
+  awarded by the Dean, FSIT, DIU.}
+  \cvitem{Champion Team --- Object-Oriented Programming course project
+  (\textit{Smart Agro System}).}
+\end{itemize}
+
+% ===================== LEADERSHIP =====================
+\section*{Leadership \& Service}
+\begin{itemize}
+  \cvitem{\textbf{Academic Service:} Reviewer, ICLR 2026 Workshop on
+  LLM Reasoning (OpenReview).}
+
+  \cvitem{\textbf{Academic Service:} Reviewer, ICLR 2026 2nd Workshop
+  on World Models (OpenReview).}
+
+  \cvitem{\textbf{Academic Service:} Reviewer, ICLR 2026 Workshop
+  Agents in the Wild: Safety, Security, and Beyond.}
+
+  \cvitem{\textbf{Volunteer Service:} Volunteer,
+  4th National Data Science Summit.}
+
+  \cvitem{Daffodil AI Club --- Assistant General Secretary.}
+  \cvitem{DIU Data Science Club --- Executive Member.}
+  \cvitem{DIU Reader's Club --- Former General Secretary.}
+\end{itemize}
+
+% ===================== SKILLS =====================
+\section*{Technical Skills}
+\textbf{Programming:} Python, C/C++, Java\\
+\textbf{Frameworks \& Libraries:} PyTorch, NumPy, Pandas, Scikit-learn\\
+\textbf{AI/ML:} Deep Learning, LLMs (prompting \& evaluation),
+Computer Vision, NLP\\
+\textbf{Tools:} Google Colab, Jupyter Notebook, Git, Linux\\
+\textbf{Research:} Academic writing, literature review,
+experiment documentation, reproducibility, LaTeX
+
+\end{document}
